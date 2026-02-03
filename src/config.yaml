@@ -1,0 +1,27 @@
+project:
+  name: aerial-species-classifier
+  seed: 42
+
+data:
+  train_csv: data/train.csv
+  val_csv: data/val.csv
+  image_root: data/images
+  num_workers: 4
+
+model:
+  architecture: resnet50
+  pretrained: true
+  num_classes: 5
+  dropout: 0.2
+
+training:
+  batch_size: 16
+  epochs: 20
+  learning_rate: 0.0003
+  weight_decay: 0.0001
+  device: cuda
+
+output:
+  checkpoints_dir: outputs/checkpoints
+  best_model_path: outputs/checkpoints/best_model.pt
+  metrics_path: outputs/metrics.json
